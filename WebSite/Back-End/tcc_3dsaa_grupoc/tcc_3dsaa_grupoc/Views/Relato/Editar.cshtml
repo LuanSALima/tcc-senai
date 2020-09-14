@@ -1,0 +1,123 @@
+﻿@model tcc_3dsaa_grupoc.Models.Relato
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="~/Content/index.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/cadastrar_editar_relato.css" rel="stylesheet" type="text/css" />
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="cadastro" style="margin-top:369px; margin-left:-95px">
+
+        <h1>Editar Relato</h1>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idRelato)
+
+        @Html.ValidationMessageFor(model => model.localizacaoX, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.localizacaoY, "", new { @class = "text-danger" })
+
+        <p>
+            @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @placeholder = "Descrição" } })
+            @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+        </p>
+        <p>
+            @Html.LabelFor(model => model.nome_tipoRelato)
+
+            @Html.DropDownListFor(model => model.idTipoRelato, (IEnumerable<SelectListItem>)ViewBag.TipoRelato)
+        </p>
+        <p>
+            @Html.EditorFor(model => model.data)
+            @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            @Html.EditorFor(model => model.hora)
+            @Html.ValidationMessageFor(model => model.hora, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            @Html.LabelFor(model => model.anonimo)
+
+            @Html.CheckBoxFor(model => model.anonimo)
+            @Html.ValidationMessageFor(model => model.anonimo, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            <input type="submit" value="Editar" />
+        </p>
+
+        <p class="link">
+            Quer ver seus relatos?
+            @Html.ActionLink("Ir para Meus Relatos", "Perfil", "Usuario", new { idUsuario = Session["Usuário"] }, null)
+        </p>
+
+    </div>
+    @Html.EditorFor(model => model.localizacaoX, new { htmlAttributes = new { @style = "visibility: hidden" } })
+    @Html.EditorFor(model => model.localizacaoY, new { htmlAttributes = new { @style = "visibility: hidden" } })
+
+    <div class="mapa" id="map" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></div>
+}
+<script>
+    //Função que irá abrir o mapa
+    function initMap() {
+
+        //Conigura a latitude de longitude para o local Relatado
+        var latlngRelato = { lat: @(Model.localizacaoX), lng: @(Model.localizacaoY) };
+
+        //Variavel que será o marcador que aparecerá
+        var marker = null;
+
+        //Cria o mapa
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 17, center: latlngRelato });
+
+        //Coloca o marcador no local que foi Relatado
+        marker = new google.maps.Marker({
+            position: latlngRelato,
+            title: "Local Relatado"
+        })
+
+        //Adiciona o marcador no mapa
+        marker.setMap(map);
+
+        //Configuração do evento de clicar no mapa
+        map.addListener('click', function (mapsMouseEvent) {
+
+            //Se ja existir um marcador no mapa, remove o anterior
+            if (marker != null) {
+                marker.setMap(null);
+                marker = null;
+            }
+
+            //Cria um marcador no local clicado
+            marker = new google.maps.Marker({
+                position: mapsMouseEvent.latLng,
+                title: "Local Selecionado"
+            });
+
+            latitudeClicada = parseFloat(mapsMouseEvent.latLng.lat().toString()).toFixed(8);
+            longitudeClicada = parseFloat(mapsMouseEvent.latLng.lng().toString()).toFixed(8);
+            //O atributo value do input de localizacaoX e localizacaoY se torna a latitude e longitude de onde foi clicado no mapa .replace(".", ",")
+            document.getElementById('localizacaoX').setAttribute('value', latitudeClicada);
+            document.getElementById('localizacaoY').setAttribute('value', longitudeClicada);
+
+            //Coloca o marcador no mapa
+            marker.setMap(map);
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdfwf_XWlqitgvUTrDVVVPp8NX3XR9WwA&callback=initMap">
+</script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

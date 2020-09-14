@@ -1,0 +1,28 @@
+.tabela{
+	margin-top: 50px;
+	margin: 0 auto;
+	border: 1px solid black;
+	border-spacing: 0;
+}
+
+.tabela th, td{
+	padding: 5px 10px;
+	border: 1px solid black;
+}
+
+.tabela th{
+	font-size: 17px;
+	background-color: #b9b9b9;
+}
+
+.tabela td{
+	font-size: 14px;
+}
+
+.tabela tr:nth-child(even) {
+  background-color: #e4e4e4;
+}
+
+.tabela tr:nth-child(odd) {
+  background-color: #ffffff;
+}

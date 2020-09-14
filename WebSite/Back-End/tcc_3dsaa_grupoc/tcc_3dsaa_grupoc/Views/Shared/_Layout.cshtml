@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Safe | @ViewBag.Title</title>
+
+    <!--
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    -->
+
+    @RenderSection("css", false)
+
+    <link href="~/Content/layout.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* The alert message box https://www.w3schools.com/howto/howto_js_alert.asp */
+        .alert {
+            padding: 20px;
+            background-color: #ff9800;
+            color: white;
+            margin-bottom: 15px;
+            opacity: 1;
+            transition: opacity 0.6s; /* 600ms to fade out */
+            z-index: 100;
+            position: sticky;
+            top: 0;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="../Imagens/banner.jpg" />
+    </div>
+
+    <div class="menu">
+        <ul>
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Buscar Relatos", "Index", "Relato")
+            </li>
+            <li>
+                @Html.ActionLink("Quem Somos", "QuemSomos", "Home")
+            </li>
+            @if (Session["Usuário"] != null)
+            {
+                <li>
+                    @Html.ActionLink("Cadastrar Relatos", "Cadastrar", "Relato")
+                </li>
+                <li class="direita">
+                    @Html.ActionLink("Sair", "Logout", "Usuario")
+                </li>
+                <li class="direita">
+                    @Html.ActionLink("Meus Relatos", "Perfil", "Usuario", new { idUsuario = Session["Usuário"] }, null)
+                </li>
+            }
+            else
+            {
+                <li class="direita">
+                    @Html.ActionLink("Login", "Login", "Usuario")
+                </li>
+                <li class="direita">
+                    @Html.ActionLink("Registrar-se", "Cadastrar", "Usuario")
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="conteudo">
+
+        @if (TempData["Mensagem"] != null)
+        {
+            if (TempData["Mensagem"].ToString().ToLower().Contains("erro"))
+            {
+                <div class="alert" style="background-color: #f44336">
+                    @TempData["Mensagem"]
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            }
+            else if (TempData["Mensagem"].ToString().ToLower().Contains("sucesso"))
+            {
+                <div class="alert" style="background-color: #4CAF50">
+                    @TempData["Mensagem"]
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            }
+            else
+            {
+                <div class="alert">
+                    @TempData["Mensagem"]
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            }
+
+        }
+        @RenderBody()
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

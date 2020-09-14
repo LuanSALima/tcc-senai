@@ -1,0 +1,32 @@
+#!!! Below is a temporary FNP 11.14 license which will expire on jul 27, 2019. In order to
+#!!! continue use of the application after that date, you must obtain a permanent license prior to
+#!!! this license expiring. Please forward the ipassi.txt file which is generated upon installation
+#!!! of the FlexNet server. This file is located in the FNP1114 directory located on your server.
+#!!! Please forward the file to simsci.productrequest@aveva.com or fax it to 949-455-8154.
+
+#!!! The second item on the SERVER line must be the host name
+#!!! or IP address of the FlexNet 11.14 server machine
+
+SERVER esn509ahyperedu ANY
+VENDOR IPASSI
+
+# Time: Thu Jun 27 17:07:12 2019
+# Product: DYNSIM
+# Expiration date: jul 27 2019
+# Licenses: 50 (Floating, v11.14)
+# Company: EscolaSENAI-9092
+INCREMENT 2401 IPASSI 1.0 27-jul-2019 50 VENDOR_STRING=DYNSIM \
+	OVERDRAFT=0 BORROW=720 SIGN="03AA 1AC4 F958 CBD1 8830 E149 \
+	1666 9229 AAD5 2E60 CA02 95D4 93E4 27FB 02FE 8C11 209B BFDC \
+	CA6C AD3D 6FBC"
+
+# Time:Thu Jun 27 17:07:13 2019
+# Product: SimCentral Platform
+# Expiration date: jul 27 2019
+# Licenses: 50 (Floating, v11.14)
+# Company: EscolaSENAI-9092
+INCREMENT 3000 IPASSI 1.0 27-jul-2019 50 VENDOR_STRING="SimCentral \
+	Platform" OVERDRAFT=0 BORROW=720 SIGN="0188 EEA4 1BDA F9DC \
+	4DCF 7E50 87E2 E1DF 792D B6F8 4A00 E705 763F 1AC0 CB75 2369 \
+	97E7 415A 59E4 E973 7AE7"
+

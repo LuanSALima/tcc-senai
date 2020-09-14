@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="~/Content/index.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/home.css" rel="stylesheet" type="text/css" />
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<div id="demo" class="carousel slide" data-ride="carousel" style="margin-top: 6px;">
+    <!-- INDICADORES -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+    </ul>
+
+    <!-- imagens do carrossel com a classe para dar zoom na imagem quando usuario passar o mouse -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="zoom">
+                <img src="../Imagens/img_tcc_home_1.jpg" width="1100" height="470">>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="zoom">
+                <img src="../Imagens/img_tcc_home_2.jpg" width="1100" height="470">>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="zoom">
+                <img src="../Imagens/img_tcc_home_3.jpg" width="1100" height="470">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="zoom">
+                <img src="../Imagens/img_tcc_home_4.jpg" width="1100" height="470">>
+            </div>
+        </div>
+
+    </div>
+
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+

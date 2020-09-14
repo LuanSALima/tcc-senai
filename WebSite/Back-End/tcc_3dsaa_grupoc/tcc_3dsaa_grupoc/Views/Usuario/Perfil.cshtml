@@ -1,0 +1,160 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<tcc_3dsaa_grupoc.Models.Relato>
+
+@{
+    if (TempData.ContainsKey("Perfil_NomeUsuario"))
+    {
+        <h2></h2>
+        ViewBag.Title = "Perfil - " + (TempData["Perfil_NomeUsuario"]);
+    }
+    else
+    {
+        ViewBag.Title = "Perfil";
+    }
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    bool usuarioDonoPerfil = false;
+
+    int idUsuarioGet = int.Parse(Request.Params["idUsuario"]);
+    
+    if ((TempData.ContainsKey("Perfil_IdUsuario")) && (Session["Usuário"] != null))
+    {
+        if ((int)TempData["Perfil_IdUsuario"] == (int)Session["Usuário"])
+        {
+            usuarioDonoPerfil = true;
+        }
+    }
+}
+
+@section css {
+    <link href="~/Content/tabela.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+}
+
+@if (TempData.ContainsKey("Perfil_NomeUsuario"))
+{
+    <h2>Perfil - @(TempData["Perfil_NomeUsuario"])</h2>
+}
+else
+{
+    <h2>Perfil</h2>
+}
+
+@if (usuarioDonoPerfil)
+{
+    <p>
+        @Html.ActionLink("Cadastrar Novo Relato", "Cadastrar", "Relato")
+    </p>
+}
+
+@if (TempData.ContainsKey("Perfil_SemRelatos"))
+{
+    if ((int)TempData["Perfil_SemRelatos"] == 1)
+    {
+        <table class="tabela">
+            <tr>
+                <th>
+                    @Html.DisplayName("Descrição")
+                </th>
+                <th>
+                    @Html.DisplayName("Tipo Relato")
+                </th>
+                <th>
+                    @Html.DisplayName("Rua")
+                </th>
+                <th>
+                    @Html.DisplayName("Cidade")
+                </th>
+                <th>
+                    @Html.DisplayName("Estado")
+                </th>
+                <th>
+                    @Html.DisplayName("Data")
+                </th>
+                <th>
+                    @Html.DisplayName("Hora")
+                </th>
+
+                @if (usuarioDonoPerfil)
+                {
+                    <th>
+                        @Html.DisplayName("Anônimo")
+                    </th>
+                    <th>
+                        Ações
+                    </th>
+                }
+        
+                
+            </tr>
+
+        @foreach (var item in Model)
+        {
+
+            if (!item.anonimo || usuarioDonoPerfil)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome_tipoRelato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rua)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hora)
+                    </td>
+
+                    @if (usuarioDonoPerfil)
+                    {
+                        if (item.anonimo)
+                        {
+                            <td>
+                                Sim
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                Não
+                            </td>
+                        }
+                        
+                        <td>
+                            @Html.ActionLink("Editar", "Editar", "Relato", new { idRelato = item.idRelato }, null) 
+                            |
+                            @Html.ActionLink("Remover", "Remover", "Relato", new { idRelato = item.idRelato }, null)
+                        </td>
+                    }
+            
+                </tr>
+            }
+
+        }
+        </table>
+
+        <span>registros de @Model.FirstItemOnPage a @Model.LastItemOnPage de um total de @Model.TotalItemCount</span>
+
+        @Html.PagedListPager(Model, pagina => Url.Action("Perfil", new { idUsuario = idUsuarioGet, pagina }))
+    }
+    else
+    {
+        <h3>Não possui relatos cadastrados !</h3>
+    }
+}
+else
+{
+    <h3>Ocorreu um problema ao carregar os relatos !</h3>
+}

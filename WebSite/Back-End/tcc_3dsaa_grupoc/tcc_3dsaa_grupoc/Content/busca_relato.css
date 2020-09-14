@@ -1,0 +1,48 @@
+.conteudo{
+    width: 100%;
+	padding: 40px 20px;
+}
+
+.buscar{
+	width: fit-content;
+	height: fit-content;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+.campoRua{
+
+	width: 600px;
+	height: 40px;
+	padding: 5px 10px;
+	font-size: 18px;
+	float: left;
+	border-radius:10px;
+}
+
+.botaoBuscar{
+
+	width: 110px;
+	height: 40px;
+	padding: 5px;
+	font-size: 20px;
+	background:linear-gradient(to bottom, #1f4f66 5%, #1f4f66 100%);
+	background-color:#1f4f66;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+    margin-left:3px;
+
+}
+.botaoBuscar:hover{
+background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+background-color:#1f4f66;
+}
+.botaoBuscar:active {
+position:relative;
+top:1px;
+}

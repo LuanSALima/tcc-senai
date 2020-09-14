@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>B-Safe | Buscar Relatos</title>
+		<meta charset="UTF-8">
+		
+		<link rel="stylesheet" type="text/css" href="../Css/layout.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../Css/busca_relato.css" media="screen" />
+		
+		
+		
+		<style>
+		
+		.conteudo{
+			width: 100%;
+			padding: 40px 20px;
+		}
+		
+		.buscar{
+			width: fit-content;
+			height: fit-content;
+			margin: 0 auto;
+			margin-bottom: 50px;
+		}
+		
+		.campoRua{
+		
+			width: 600px;
+			height: 40px;
+			padding: 5px 10px;
+			font-size: 18px;
+			float: left;
+			border-radius:10px;
+		}
+		
+		
+		
+		.botaoBuscar{
+		
+			width: 110px;
+			height: 40px;
+			padding: 5px;
+			font-size: 20px;
+			background:linear-gradient(to bottom, #1f4f66 5%, #1f4f66 100%);
+			background-color:#1f4f66;
+			border-radius:10px;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #283966;
+
+		}
+		.botaoBuscar:hover{
+		background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	    background-color:#1f4f66;
+		}
+		.botaoBuscar:active {
+		position:relative;
+		top:1px;
+		}
+		
+		body{
+    	    background-image: url(background_tcc.jpeg);
+	        background-size: auto;
+        }
+		
+		.tabela{
+			margin-top: 50px;
+			margin: 0 auto;
+			border: 1px solid black;
+			border-spacing: 0;
+			border-
+		}
+		
+		.tabela th, td{
+			padding: 5px 10px;
+			border: 1px solid black;
+		}
+		
+		.tabela th{
+			font-size: 17px;
+			background-color: #b9b9b9;
+		}
+		
+		.tabela td{
+			font-size: 14px;
+		}
+		
+		.tabela tr:nth-child(even) {
+		  background-color: #e4e4e4;
+		}
+		
+	@media only screen and (max-width:620px) {
+				.menu, .main, .right {
+				width:100%;
+				}
+			}
+		</style>
+		
+	</head>
+	<body>
+
+		<div class="banner">
+		  <img src="../Imagens/banner_fundo2.jpg" />
+		</div>
+
+		<div class="menu">
+			<ul>
+				<li> 
+					<a href="home_page.html">Home</a> 
+				</li>
+				<li> 
+					<a href="busca_relato.html">Buscar Relato</a>
+				</li>
+				<li> 
+					<a href="quem_somos.html">Quem Somos</a>
+				</li>
+				<li> 
+					<a href="cadastro_relato.html">Cadastrar Relato</a>
+				</li>
+				<li class="direita"> 
+					<a href="login_usuario.html">Login</a>
+				</li>
+				<li class="direita">
+					<a href="cadastro_usuario.html">Registrar-se</a>
+				</li>
+				<li class="direita">
+					<a href="meus_relatos.html">Meus Relatos</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="conteudo">
+			
+			<div class="buscar">
+				<form>
+				
+					<input class="campoRua" type="text" id="rua" name="rua" placeholder="Digite uma Rua ..." autofocus>
+					<input class="botaoBuscar" type="submit" value="Buscar" style="margin-left:3px">
+					
+				</form>
+			</div>
+			</br>
+			<h3 style="text-align:center;">Relatos Realizados </h3>
+			<table class="tabela">
+			  <tr>
+				<th>Ocorrência</th>
+				<th>Localidade</th>
+				<th>Data</th>
+				<th>Descrição</th>
+			  </tr>
+			  <tr>
+				<td>Assalto</td>
+				<td>Abolição</td>
+				<td>30/04/2020</td>
+				<td>Me assaltaram na rua.</td>
+			  </tr>
+			  <tr>
+				<td>Homicídio</td>
+				<td>Ponte Preta</td>
+				<td>29/11/2018</td>
+				<td>Mataram meu vizinho.</td>
+			  </tr>
+			  <tr>
+				<td>Furto</td>
+				<td>José Paulino</td>
+				<td>05/03/2019</td>
+				<td>Furtaram o meu carro.</td>
+			  </tr>
+			</table>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TermosLer">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="417dp"
+        android:layout_height="691dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet consectetur adipiscing elit odio in, turpis est condimentum sollicitudin congue taciti nibh lobortis tempor litora, tortor nam cras suspendisse nascetur vivamus a dis. Amet congue id ante praesent elementum purus, eros bibendum suscipit tortor in donec neque, quisque a vivamus natoque quam. Vestibulum hendrerit etiam nec dignissim porta pretium quam bibendum, massa litora iaculis parturient non consectetur nunc mollis, nulla placerat himenaeos vitae urna finibus eleifend. Mollis vivamus ac suscipit adipiscing magna iaculis velit conubia vitae, donec primis tellus ultricies porttitor lorem natoque ex, pharetra felis habitant ante cras mauris nunc interdum. Consequat primis suspendisse tellus fringilla cubilia diam dictum donec id nullam vestibulum, pellentesque eros lorem phasellus turpis erat pharetra dapibus per curae, nunc hac mollis urna ornare malesuada ante velit blandit aptent. Fusce morbi vitae vivamus lacinia natoque leo nec litora risus netus, himenaeos elit neque ornare molestie nullam vulputate tortor malesuada, proin consequat phasellus massa orci lectus aliquam fermentum tristique. Per in porta magna consequat maximus auctor elit, parturient penatibus vivamus sollicitudin id ultrices, senectus dapibus duis pretium metus interdum. Dignissim vestibulum feugiat per egestas class ligula lectus leo pellentesque velit phasellus, quam congue elementum convallis lobortis litora malesuada curabitur eu consectetur himenaeos, urna morbi facilisis volutpat nisi eros hac integer penatibus mi. Donec accumsan dui aenean mus dolor dis curae vitae, pellentesque mattis non nec mauris ornare ultrices, elit tincidunt nam primis at phasellus hac.Lorem ipsum dolor sit amet consectetur adipiscing elit odio in, turpis est condimentum sollicitudin congue taciti nibh lobortis tempor litora, tortor nam cras suspendisse nascetur vivamus a dis. Amet congue id ante praesent elementum purus, eros bibendum suscipit tortor in donec neque, quisque a vivamus natoque quam. Vestibulum hendrerit etiam nec dignissim porta pretium quam bibendum, massa litora iaculis parturient non consectetur nunc mollis, nulla placerat himenaeos vitae urna finibus eleifend. Mollis vivamus ac suscipit adipiscing magna iaculis velit conubia vitae, donec primis tellus ultricies porttitor lorem natoque ex, pharetra felis habitant ante cras mauris nunc interdum. Consequat primis suspendisse tellus fringilla cubilia diam dictum donec id nullam vestibulum, pellentesque eros lorem phasellus turpis erat pharetra dapibus per curae, nunc hac mollis urna ornare malesuada ante velit blandit aptent. Fusce morbi vitae vivamus lacinia natoque leo nec litora risus netus, himenaeos elit neque ornare molestie nullam vulputate tortor malesuada, proin consequat phasellus massa orci lectus aliquam fermentum tristique. Per in porta magna consequat maximus auctor elit, parturient penatibus vivamus sollicitudin id ultrices, senectus dapibus duis pretium metus interdum. Dignissim vestibulum feugiat per egestas class ligula lectus leo pellentesque velit phasellus, quam congue elementum convallis lobortis litora malesuada curabitur eu consectetur himenaeos, urna morbi facilisis volutpat nisi eros hac integer penatibus mi. Donec accumsan dui aenean mus dolor dis curae vitae, pellentesque mattis non nec mauris ornare ultrices, elit tincidunt nam primis at phasellus hac.Lorem ipsum dolor sit amet consectetur adipiscing elit odio in, turpis est condimentum sollicitudin congue taciti nibh lobortis tempor litora, tortor nam cras suspendisse nascetur vivamus a dis. Amet congue id ante praesent elementum purus, eros bibendum suscipit tortor in donec neque, quisque a vivamus natoque quam. Vestibulum hendrerit etiam nec dignissim porta pretium quam bibendum, massa litora iaculis parturient non consectetur nunc mollis, nulla placerat himenaeos vitae urna finibus eleifend. Mollis vivamus ac suscipit adipiscing magna iaculis velit conubia vitae, donec primis tellus ultricies porttitor lorem natoque ex, pharetra felis habitant ante cras mauris nunc interdum. Consequat primis suspendisse tellus fringilla cubilia diam dictum donec id nullam vestibulum, pellentesque eros lorem phasellus turpis erat pharetra dapibus per curae, nunc hac mollis urna ornare malesuada ante velit blandit aptent. Fusce morbi vitae vivamus lacinia natoque leo nec litora risus netus, himenaeos elit neque ornare molestie nullam vulputate tortor malesuada, proin consequat phasellus massa orci lectus aliquam fermentum tristique. Per in porta magna consequat maximus auctor elit, parturient penatibus vivamus sollicitudin id ultrices, senectus dapibus duis pretium metus interdum. Dignissim vestibulum feugiat per egestas class ligula lectus leo pellentesque velit phasellus, quam congue elementum convallis lobortis litora malesuada curabitur eu consectetur himenaeos, urna morbi facilisis volutpat nisi eros hac integer penatibus mi. Donec accumsan dui aenean mus dolor dis curae vitae, pellentesque mattis non nec mauris ornare ultrices, elit tincidunt nam primis at phasellus hac. \n \n \n    \n" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/li_aceito"
+        android:layout_width="216dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="16dp"
+        android:text="Li e aceito os Termos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

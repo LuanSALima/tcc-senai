@@ -1,0 +1,122 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<tcc_3dsaa_grupoc.Models.Relato>
+
+@{
+    ViewBag.Title = "Buscar Relato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string ruaGet = Request.Params["rua"];
+
+}
+
+@section css {
+    <link href="~/Content/busca_relato.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/tabela.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+}
+
+    <div class="buscar">
+        @using (Html.BeginForm("Index", "Relato", FormMethod.Get))
+        {
+            <input class="campoRua" type="text" id="rua" name="rua" placeholder="Digite uma Rua ..." autofocus>
+            <input class="botaoBuscar" type="submit" value="Buscar">
+        }
+    </div>
+
+    <br/>
+
+    <h3 style="text-align:center;">Relatos Realizados </h3>
+
+@if (TempData.ContainsKey("SemRelatos"))
+{
+    if ((int)TempData["SemRelatos"] != 1)
+    {
+        <table class="tabela">
+            <tr>
+                <th>
+                    @Html.DisplayName("Usuário")
+                </th>
+                <th>
+                    @Html.DisplayName("Descrição")
+                </th>
+                <th>
+                    @Html.DisplayName("Tipo Relato")
+                </th>
+                <th>
+                    @Html.DisplayName("Rua")
+                </th>
+                <th>
+                    @Html.DisplayName("Cidade")
+                </th>
+                <th>
+                    @Html.DisplayName("Estado")
+                </th>
+                <th>
+                    @Html.DisplayName("Data")
+                </th>
+                <th>
+                    @Html.DisplayName("Hora")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.anonimo)
+                        {
+                            @Html.DisplayName("ANÔNIMO");
+                        }
+                        else
+                        {
+                            @Html.ActionLink(item.nome_usuario, "Perfil", "Usuario", new { idUsuario = item.idUsuario }, null)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome_tipoRelato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rua)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hora)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+        <span>Listando registros de @Model.FirstItemOnPage a @Model.LastItemOnPage de um total de @Model.TotalItemCount</span>
+
+        @Html.PagedListPager(Model, pagina => Url.Action("Index", new { rua = ruaGet, pagina }))
+    }
+    else
+    {
+        if (string.IsNullOrEmpty(ruaGet))
+        {
+            <p>Não há Relatos cadastrados !</p>
+        }
+        else
+        {
+            <p>Não há Relatos Cadastrados nesta Rua !</p>
+        }
+
+    }
+}
+else
+{
+    <p>Erro ao carregar a página, Tente novamente !</p>
+}

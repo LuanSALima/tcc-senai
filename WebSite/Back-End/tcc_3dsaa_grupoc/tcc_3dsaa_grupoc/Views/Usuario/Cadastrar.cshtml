@@ -1,0 +1,56 @@
+﻿@model tcc_3dsaa_grupoc.Models.Usuario
+
+@{
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="~/Content/index.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/login_cadastro.css" rel="stylesheet" type="text/css" />
+}
+
+<div id="cadastro">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <h1>Cadastro</h1>
+
+        <p>
+            @Html.LabelFor(model => model.nome_usuario)
+            @Html.EditorFor(model => model.nome_usuario, new { htmlAttributes = new { @placeholder = "nome" } })
+            @Html.ValidationMessageFor(model => model.nome_usuario, "", new { @class = "text-danger" })
+        </p>
+        <p>
+            @Html.LabelFor(model => model.email_usuario)
+            @Html.EditorFor(model => model.email_usuario, new { htmlAttributes = new { @placeholder = "contato@htmlecsspro.com" } })
+            @Html.ValidationMessageFor(model => model.email_usuario, "", new { @class = "text-danger" })
+        </p>
+        <p>
+            @Html.LabelFor(model => model.senha_usuario)
+            @Html.EditorFor(model => model.senha_usuario, new { htmlAttributes = new { @placeholder = "ex. 1234" } })
+            @Html.ValidationMessageFor(model => model.senha_usuario, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            @Html.LabelFor(model => model.confirmar_senha_usuario)
+            @Html.EditorFor(model => model.confirmar_senha_usuario, new { htmlAttributes = new { @placeholder = "ex. 1234" } })
+            @Html.ValidationMessageFor(model => model.confirmar_senha_usuario, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            <input type="submit" value="Cadastrar" />
+        </p>
+
+        <p class="link">
+            Já tem conta?
+            @Html.ActionLink("Ir para Login", "Login")
+        </p>
+    }
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,52 @@
+body {
+	font-family: Arial;
+	margin: 0;
+    background-image: url(background_tcc.jpeg);
+	background-size: auto;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.banner {
+	height: 300px;
+	background: #1abc9c;
+}
+
+	.banner img{
+		width: 100%;
+		height: 100%;
+	}
+
+.menu {
+	overflow: hidden;
+	background-color: #1f4f66;
+}
+
+	.menu ul{
+		list-style-type: none;
+		margin: 0px;
+		padding-left: 0px;
+	}
+
+	.menu li{
+		float: left;
+	}
+
+	.menu a {
+		float: left;
+		color: white;
+		text-align: center;
+		padding: 14px 20px;
+		text-decoration: none;
+	}
+
+	.menu li.direita {
+		float: right;
+	}
+
+	.menu a:hover {
+		background-color: #ddd;
+		color: black;
+	}
